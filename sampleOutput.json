@@ -1,0 +1,36 @@
+{
+  "status": "ok",
+  "totalResults": 3,
+  "articles": [
+    {
+      "source": { "id": null, "name": "Cricbuzz" },
+      "author": null,
+      "title": "Australia vs South Africa, 2nd Test, South Africa tour of Australia, 2022-23 - Cricbuzz",
+      "description": "Follow Australia vs South Africa, 2nd Test, Dec 25, South Africa tour of Australia, 2022-23 with live Cricket score, ball by ball commentary updates on Cricbuzz",
+      "url": "https://www.cricbuzz.com/live-cricket-scores/48135/aus-vs-rsa-2nd-test-south-africa-tour-of-australia-2022-23",
+      "urlToImage": null,
+      "publishedAt": "2022-12-27T07:13:25Z",
+      "content": "South Africa had very little joy. They picked only two wickets and one of them was a runout. Marnus went early in the day and that was due to a communication breakdown between him and Warner. Smith w… [+3991 chars]"
+    },
+    {
+      "source": { "id": null, "name": "Hindustan Times" },
+      "author": "HT Sports Desk",
+      "title": "PCB chief breaks silence on Babar's captaincy in reaction to a Ramiz Raja remark - Hindustan Times",
+      "description": "On Monday, PCB's new chief, Najam Sethi, broke silence on Babar's captaincy future with an absolute gold remark to reporter's query on an old Ramiz Raja remark. | Cricket",
+      "url": "https://www.hindustantimes.com/cricket/watch-pcb-chief-najam-sethi-breaks-silence-on-babar-azam-s-captaincy-with-absolute-gold-reply-to-reporter-s-query-on-a-ramiz-raja-remark-101672116685971.html",
+      "urlToImage": "https://images.hindustantimes.com/img/2022/12/27/1600x900/New_Project_-_2022-12-27T105434946_1672118782390_1672118782526_1672118782526.jpg",
+      "publishedAt": "2022-12-27T05:46:28Z",
+      "content": "Questions were raised on Babar Azam's captaincy after Pakistan suffered a forgettable 0-3 loss to England at home in a Test series. And after the Pakistan Cricket Board (PCB) witnessed two huge chang… [+1804 chars]"
+    },
+    {
+      "source": { "id": null, "name": "NDTV News" },
+      "author": "Agence France-Presse",
+      "title": "David Warner Hits Century In 100th Test. Here's How Twitter Reacted - NDTV Sports",
+      "description": "Australia's veteran opener David Warner hit a century on Tuesday against South Africa in his 100th Test to snap a near-three-year drought as he bounced back to his best at the Melbourne Cricket Ground.",
+      "url": "https://sports.ndtv.com/cricket/david-warner-hits-century-in-100th-test-heres-how-twitter-reacted-3640896",
+      "urlToImage": "https://c.ndtvimg.com/2022-12/tmlrj508_david-warner-afp_625x300_27_December_22.jpg?im=FeatureCrop,algorithm=dnn,width=1200,height=675",
+      "publishedAt": "2022-12-27T04:02:47Z",
+      "content": "Australia's veteran opener David Warner hit a century on Tuesday against South Africa in his 100th Test to snap a near-three-year drought as he bounced back to his best at the Melbourne Cricket Groun… [+2016 chars]"
+    }
+  ]
+}
