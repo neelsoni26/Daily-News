@@ -2,7 +2,20 @@ import React, { Component } from "react";
 import NewsItem from "./NewsItem";
 import apiKey from "./APIkey.mjs"; //Add your api key in this file.
 import Loading from "./loading";
+import PropTypes from "prop-types";
 export default class News extends Component {
+  static defaultProps = {
+    country: "in",
+    category: "general",
+    pageSize: 9,
+  };
+
+  static propTypes = {
+    country: PropTypes.string,
+    category: PropTypes.string,
+    pageSize: PropTypes.number,
+  };
+
   constructor() {
     super();
     this.state = {
@@ -13,7 +26,7 @@ export default class News extends Component {
   }
 
   async componentDidMount() {
-    let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=${apiKey}&page=1&pageSize=${this.props.pageSize}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${apiKey}&page=1&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
     //console.log(url);
     let data = await fetch(url);
@@ -27,7 +40,9 @@ export default class News extends Component {
 
   handlePrevClick = async () => {
     console.log("Previous");
-    let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=${apiKey}&page=${
+    let url = `https://newsapi.org/v2/top-headlines?country=${
+      this.props.country
+    }&category=${this.props.category}&apiKey=${apiKey}&page=${
       this.state.page - 1
     }&pageSize=${this.props.pageSize}`;
     // console.log(url);
@@ -43,7 +58,9 @@ export default class News extends Component {
 
   handleNextClick = async () => {
     // console.log("Next");
-    let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=${apiKey}&page=${
+    let url = `https://newsapi.org/v2/top-headlines?country=${
+      this.props.country
+    }&category=${this.props.category}&apiKey=${apiKey}&page=${
       this.state.page + 1
     }&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
@@ -67,7 +84,7 @@ export default class News extends Component {
             {!this.state.loading &&
               this.state.articles.map((element) => {
                 return (
-                  <div className="col-md-4" key={element.url}>
+                  <div className="col-lg-4 col-md-6" key={element.url}>
                     <NewsItem
                       title={element.title ? element.title : ""}
                       description={
