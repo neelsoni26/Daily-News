@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Daily News
+
+This is an news webapp which provides you top headlines and full articles which made possible with newsAPI.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

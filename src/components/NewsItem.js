@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import imgUnavailable from "./img_not_available.png";
 
 export default class NewsItem extends Component {
   render() {
@@ -7,9 +8,9 @@ export default class NewsItem extends Component {
       <>
         <div className="card my-3" style={{ width: "18rem" }}>
           <img
-            src={imageUrl == null ? "/img_not_available.png" : imageUrl}
+            src={imageUrl == null ? imgUnavailable : imageUrl}
             className="card-img-top"
-            alt="Image"
+            alt="News"
             height={180}
             width={600}
           />
@@ -17,6 +18,7 @@ export default class NewsItem extends Component {
             <h5 className="card-title">{title}</h5>
             <p className="card-text">{description}</p>
             <a
+              rel="noreferrer"
               href={newsUrl}
               target="_blank"
               className="btn btn-sm btn-primary"
