@@ -15,14 +15,14 @@ export default class NewsItem extends Component {
           />
           <div className="card-body">
             <span
-              class="position-absolute top-0 translate-middle badge text-bg-secondary rounded-pill"
+              className="position-absolute top-0 translate-middle badge text-bg-secondary rounded-pill"
               style={{ left: "50%", ZIndex: 1 }}
             >
               {source}
             </span>
             <h5 className="card-title">{title}</h5>
-            <p class="card-text">
-              <small class="text-muted">
+            <p className="card-text">
+              <small className="text-muted">
                 By {!author ? "Unknown" : author} on{" "}
                 {new Date(date).toUTCString()}
               </small>

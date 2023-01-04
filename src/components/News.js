@@ -3,6 +3,7 @@ import NewsItem from "./NewsItem";
 import apiKey from "./APIkey.mjs"; //Add your api key in this file.
 import Loading from "./loading";
 import PropTypes from "prop-types";
+
 export default class News extends Component {
   static defaultProps = {
     country: "in",
@@ -16,19 +17,25 @@ export default class News extends Component {
     pageSize: PropTypes.number,
   };
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       articles: [],
       loading: false,
       page: 1,
     };
+    document.title = `${this.capitalizeFirstLetter(
+      this.props.category
+    )} - DailyNews`;
   }
 
-  async componentDidMount() {
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${apiKey}&page=1&pageSize=${this.props.pageSize}`;
+  capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
+  async updateNews() {
+    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
-    //console.log(url);
     let data = await fetch(url);
     let parseData = await data.json();
     this.setState({
@@ -38,47 +45,29 @@ export default class News extends Component {
     });
   }
 
+  componentDidMount() {
+    this.updateNews();
+  }
+
   handlePrevClick = async () => {
-    console.log("Previous");
-    let url = `https://newsapi.org/v2/top-headlines?country=${
-      this.props.country
-    }&category=${this.props.category}&apiKey=${apiKey}&page=${
-      this.state.page - 1
-    }&pageSize=${this.props.pageSize}`;
-    // console.log(url);
-    this.setState({ loading: true });
-    let data = await fetch(url);
-    let parseData = await data.json();
-    this.setState({
-      page: this.state.page - 1,
-      articles: parseData.articles,
-      loading: false,
-    });
+    await this.setState({ page: this.state.page - 1 });
+    // this.setState({ page: this.state.page - 1 });
+    this.updateNews();
   };
 
   handleNextClick = async () => {
-    // console.log("Next");
-    let url = `https://newsapi.org/v2/top-headlines?country=${
-      this.props.country
-    }&category=${this.props.category}&apiKey=${apiKey}&page=${
-      this.state.page + 1
-    }&pageSize=${this.props.pageSize}`;
-    this.setState({ loading: true });
-    let data = await fetch(url);
-    let parseData = await data.json();
-    // console.log(parseData);
-    this.setState({
-      page: this.state.page + 1,
-      articles: parseData.articles,
-      loading: false,
-    });
+    await this.setState({ page: this.state.page + 1 });
+    this.updateNews();
   };
 
   render() {
     return (
       <>
         <div className="container my-3">
-          <h1 className="text-center my-3">Top News Headlines</h1>
+          <h1 className="text-center my-3">
+            DailyNews - Top {this.capitalizeFirstLetter(this.props.category)}{" "}
+            Headlines
+          </h1>
           {this.state.loading && <Loading />}
           <div className="row">
             {!this.state.loading &&
