@@ -7,7 +7,7 @@ export default class NavBar extends Component {
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
-            Navbar
+            NEWS APP
           </Link>
           <button
             className="navbar-toggler"
@@ -24,7 +24,7 @@ export default class NavBar extends Component {
             <ul className="navbar-nav">
               <li className="nav-item">
                 <Link className="nav-link" aria-current="page" to="/">
-                  Home
+                  General
                 </Link>
               </li>
               <li className="nav-item">

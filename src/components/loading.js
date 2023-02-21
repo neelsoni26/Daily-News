@@ -4,7 +4,13 @@ export default class loading extends Component {
   render() {
     return (
       <div className="text-center">
-        <img src={spinner} alt="loading" />
+        <img
+          className="my-3"
+          src={spinner}
+          alt="loading"
+          height={70}
+          width={70}
+        />
       </div>
     );
   }
