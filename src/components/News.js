@@ -36,15 +36,19 @@ export default class News extends Component {
   };
 
   async updateNews() {
+    this.props.setProgress(10);
     const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     this.setState({ loading: true });
     let data = await fetch(url);
+    this.props.setProgress(30);
     let parsedData = await data.json();
+    this.props.setProgress(70);
     this.setState({
       articles: parsedData.articles,
       totalResults: parsedData.totalResults,
       loading: false,
     });
+    this.props.setProgress(100);
   }
 
   componentDidMount() {
@@ -69,7 +73,6 @@ export default class News extends Component {
   render() {
     return (
       <>
-        {/* <div className="container my-3"> */}
         <h1 className="text-center my-3">
           DailyNews - Top {this.capitalizeFirstLetter(this.props.category)}{" "}
           Headlines
@@ -103,30 +106,11 @@ export default class News extends Component {
             </div>
           </div>
         </InfiniteScroll>
-        {/* <div className="container d-flex justify-content-between">
-            <button
-              disabled={this.state.page <= 1 ? true : false}
-              type="button"
-              className="btn btn-primary"
-              onClick={this.handlePrevClick}
-            >
-              &larr; Previous
-            </button>
-            <button
-              disabled={
-                this.state.page + 1 >
-                Math.ceil(this.state.totalResults / this.props.pageSize)
-                  ? true
-                  : false
-              }
-              type="button"
-              className="btn btn-primary"
-              onClick={this.handleNextClick}
-            >
-              Next &rarr;
-            </button>
-          </div> */}
-        {/* </div> */}
+        <div className="container">
+          <p className="text-center my-3">
+            <a href="#top">Go to top &uarr;</a>
+          </p>
+        </div>
       </>
     );
   }
